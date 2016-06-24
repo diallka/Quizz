@@ -26,6 +26,7 @@ public class QuestionsServlet extends HttpServlet {
         
        Questions q = new Questions();
        q.setOrdre(1);
+       //int ordre = Integer.parseInt(req.getParameter("ordre"));
        QuestionsService questionsService = new QuestionsService();
        new QuestionsService().creer(q);
        
