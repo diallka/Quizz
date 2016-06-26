@@ -12,6 +12,7 @@ import Services.QuizzService;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -20,8 +21,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author admin
  */
-@WebServlet(name = "QuestionsServlet", urlPatterns = {"/questionsServlet"})
-public class QuestionsServlet extends HttpServlet {
+@WebServlet(name = "QuestionsServlet", urlPatterns = {"/ajouter_question"})
+public class AjouterQuestionsServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -45,14 +46,16 @@ public class QuestionsServlet extends HttpServlet {
        QuestionsService questionsService = new QuestionsService();
        new QuestionsService().creer(q);
        
-       resp.sendRedirect("questionsServlet");
+       
+       
+       resp.sendRedirect("ajouter_question");
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setAttribute("quizzs", new QuizzService().lister());
         
-        req.getRequestDispatcher("ajouterQuestions.jsp").forward(req, resp);
+        req.getRequestDispatcher("ajouter_questions.jsp").forward(req, resp);
     }
 
    

@@ -18,8 +18,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author admin
  */
-@WebServlet(name = "QuizzServlet", urlPatterns = {"/quizzServlet"})
-public class QuizzServlet extends HttpServlet {
+@WebServlet(name = "QuizzServlet", urlPatterns = {"/creer_quizz"})
+public class CreerQuizzServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -30,13 +30,13 @@ public class QuizzServlet extends HttpServlet {
        new QuizzService().creer(qz);
        
        
-       resp.sendRedirect("questionsServlet");
+       resp.sendRedirect("ajouter_question");
        
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("creerQuizz.jsp").forward(req, resp);
+        req.getRequestDispatcher("creer_quizz.jsp").forward(req, resp);
     }
 
     
