@@ -6,6 +6,7 @@
 package DAO;
 
 import Entities.Quizz;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 
@@ -24,6 +25,16 @@ public class QuizzDAO {
         em.persist(qz);
         em.getTransaction().commit();
 
+    }
+
+    public Quizz rechercherQuizzParId(long quizzId) {
+        EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();
+        return em.find(Quizz.class, quizzId);
+    }
+
+    public List<Quizz> listerQuizz() {
+        EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();
+        return em.createQuery("SELECT qz FROM Quizz qz ORDER BY qz.nom").getResultList();
     }
     
 }

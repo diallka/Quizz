@@ -35,7 +35,7 @@ public class Questions implements Serializable {
     
     private String rep3;
     
-    private String numRepCorrecte;
+    private int numRepCorrecte;
     
     @ManyToOne
     @JoinColumn(name = "QUIZZ_ID")
@@ -99,11 +99,11 @@ public class Questions implements Serializable {
         this.rep3 = rep3;
     }
 
-    public String getNumRepCorrecte() {
+    public int getNumRepCorrecte() {
         return numRepCorrecte;
     }
 
-    public void setNumRepCorrecte(String numRepCorrecte) {
+    public void setNumRepCorrecte(int numRepCorrecte) {
         this.numRepCorrecte = numRepCorrecte;
     }
 
