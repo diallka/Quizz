@@ -38,6 +38,7 @@ public class DemarrerQuizzServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         //Lister questions
+                                                            //rechercher par id
         List<Questions> mesQuestions = new QuestionsService().lister();
         req.setAttribute("questions", mesQuestions);
         

@@ -57,7 +57,9 @@ public class GererQuestionsServlet extends HttpServlet {
         req.setAttribute("quizzs", mesQuizzs);
         //req.getSession().setAttribute("idQuizActuel", Long.parseLong( req.getParameter("id") ));
         //*************************************************************
+                                                            //rechercher par id
         List<Questions> mesQuestions = new QuestionsService().lister();
+        
         req.setAttribute("questions", mesQuestions);
 
         req.getRequestDispatcher("gerer_questions.jsp").forward(req, resp);
