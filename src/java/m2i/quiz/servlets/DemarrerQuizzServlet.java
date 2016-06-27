@@ -28,6 +28,7 @@ public class DemarrerQuizzServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+        //A gerer puis recuperer attributs
          //req.getSession().getAttribute("idQuizActuel", Long.parseLong( req.getParameter("id") ));
         
     }
