@@ -25,6 +25,7 @@ public class QuizzService {
     }
 
     public List<Quizz> lister() {
+        
         return new QuizzDAO().listerQuizz();
         
     }

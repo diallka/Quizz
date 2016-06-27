@@ -24,6 +24,10 @@
         </div>
         <div class="contenu">
             Contenu de l'espace personnel
+            <c:if test="${cookie.login.getValue() == 'admin' && cookie.pswd.getValue() == 'admin' }">
+               <h4>Liste des quizz deja créés</h4> 
+            </c:if>
+            
         </div>
         <div class="pied">
             <c:import url="_FOOTER.jsp" />
