@@ -59,10 +59,12 @@ public class GererQuestionsServlet extends HttpServlet {
         //*************************************************************
                                                             //rechercher par id
         List<Questions> mesQuestions = new QuestionsService().lister();
-        
         req.setAttribute("questions", mesQuestions);
-
         req.getRequestDispatcher("gerer_questions.jsp").forward(req, resp);
+        
+//        long questionId = (long) req.getSession().getAttribute("idQuestionActuel");
+//        Questions mesQuestions = new QuestionsService().rechercherQuestionParId(questionId);
+//        req.setAttribute("questions", mesQuestions);
     }
 
 }

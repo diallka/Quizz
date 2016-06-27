@@ -24,9 +24,9 @@
             <c:forEach items="${questions}" var="q">
                 ${q.ordre} <br/>
                 ${q.titre}<br/>
-                <input type="radio" name="rep" value="${q.rep1}"/><br/>
-                <input type="radio" name="rep" value="${q.rep2}"/><br/>
-                <input type="radio" name="rep" value="${q.rep3}"/><br/><br/>
+                <input type="radio" name="rep" value="${q.rep1}"/>&nbsp ${q.rep1}<br/>
+                <input type="radio" name="rep" value="${q.rep2}"/>&nbsp ${q.rep2}<br/>
+                <input type="radio" name="rep" value="${q.rep3}"/>&nbsp ${q.rep3}<br/><br/>
             </c:forEach>
             <br/>
             <input type ="submit" value="valider"/>

@@ -14,36 +14,30 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import m2i.quiz.entities.Questions;
-import m2i.quiz.entities.Quizz;
 import m2i.quiz.services.QuestionsService;
-import m2i.quiz.services.QuizzService;
 
 /**
  *
- * @author admin
+ * @author Pro
  */
-@WebServlet(name = "ListerQuestionServlet", urlPatterns = {"/demarrer_quizz"})
+@WebServlet(name = "ValiderQuestionServlet", urlPatterns = {"/demarrer_quizz"})
 public class DemarrerQuizzServlet extends HttpServlet {
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-        //A gerer puis recuperer attributs
-         //req.getSession().getAttribute("idQuizActuel", Long.parseLong( req.getParameter("id") ));
-        
-    }
-
-    
-   
-    @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        //Lister questions
-                                                            //rechercher par id
-        List<Questions> mesQuestions = new QuestionsService().lister();
-        req.setAttribute("questions", mesQuestions);
+       
         
-        //
-        req.getRequestDispatcher("demarrer_quizz.jsp").forward(req, resp);
+//        long questionId = (long) req.getSession().getAttribute("idQuestionActuel");
+//        Questions Questions = new QuestionsService().rechercherQuestionParId(questionId);
+//        req.setAttribute("question", Questions);
+
+          //On place un Quizz en session
+          req.getSession().setAttribute("quizzId", Long.parseLong(req.getParameter("idQuizzActuel")));
+          
+          //On met le score à zero dans la session
+          req.getSession().setAttribute("score", 0);
+          
+          //Rédirection  vers jsp question suivante
+          resp.sendRedirect("question_suivante");
     }    
-    
 }
