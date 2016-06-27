@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package DAO;
+package m2i.quiz.dao;
 
-import Entities.Quizz;
+import m2i.quiz.entities.Quizz;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;

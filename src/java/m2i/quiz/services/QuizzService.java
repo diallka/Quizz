@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Services;
+package m2i.quiz.services;
 
-import DAO.QuizzDAO;
-import Entities.Quizz;
+import m2i.quiz.dao.QuizzDAO;
+import m2i.quiz.entities.Quizz;
 import java.util.List;
 /**
  *

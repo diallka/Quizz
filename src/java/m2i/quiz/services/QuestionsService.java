@@ -3,11 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Services;
+package m2i.quiz.services;
 
 
-import DAO.QuestionsDAO;
-import Entities.Questions;
+import java.util.List;
+import m2i.quiz.dao.QuestionsDAO;
+import m2i.quiz.entities.Questions;
 
 /**
  *
@@ -19,6 +20,11 @@ public class QuestionsService {
     public void creer(Questions q) {
         QuestionsDAO dao = new QuestionsDAO();
         dao.creerTableQuestions(q);
+    }
+
+    public List<Questions> lister() {
+        
+       return new QuestionsDAO().lister();
     }
     
 }

@@ -7,6 +7,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
+
             <h1>Identification</h1>
         <form method="post">
             Identifiant: <input type="text" name="login"/><br/><br/>

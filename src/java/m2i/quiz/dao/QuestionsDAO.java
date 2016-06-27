@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package DAO;
+package m2i.quiz.dao;
 
-import Entities.Questions;
+import java.util.List;
+import m2i.quiz.entities.Questions;
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 
@@ -23,6 +24,12 @@ public class QuestionsDAO {
         em.persist(q);
         em.getTransaction().commit();
 
+    }
+
+    public  List<Questions> lister(){
+         EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();
+        return em.createQuery("SELECT q FROM Questions q ORDER BY q.id").getResultList();
+      
     }
     
 }

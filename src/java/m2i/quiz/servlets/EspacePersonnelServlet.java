@@ -3,10 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Servlets;
+package m2i.quiz.servlets;
 
-import Entities.Quizz;
-import Services.QuizzService;
+import m2i.quiz.entities.Questions;
+import m2i.quiz.entities.Quizz;
+import m2i.quiz.services.QuestionsService;
+import m2i.quiz.services.QuizzService;
 import java.io.IOException;
 import java.util.List;
 import javax.servlet.ServletException;
@@ -24,19 +26,23 @@ public class EspacePersonnelServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-       
-        
+        Quizz qz = new Quizz();
+        qz.setNom(req.getParameter("nom"));
+        //qz.setQuestions((List<Questions>) q);
+        QuizzService quizzService = new QuizzService();
+        new QuizzService().creer(qz);
+
+        resp.sendRedirect("espace_personnel");
+
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<Quizz> mesQuizzs = new QuizzService().lister();
-        
+
         req.setAttribute("quizzs", mesQuizzs);
-        
-        
+
         req.getRequestDispatcher("espace_personnel.jsp").forward(req, resp);
     }
 
-    
 }

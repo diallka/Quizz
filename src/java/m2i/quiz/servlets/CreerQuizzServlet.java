@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Servlets;
+package m2i.quiz.servlets;
 
-import Entities.Quizz;
-import Services.QuizzService;
+import m2i.quiz.entities.Quizz;
+import m2i.quiz.services.QuizzService;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
