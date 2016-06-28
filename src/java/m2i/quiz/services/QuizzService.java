@@ -29,5 +29,10 @@ public class QuizzService {
         return new QuizzDAO().listerQuizz();
         
     }
+
+ 
+    public Quizz detailler(long quizzId) {
+        return new QuizzDAO().detailler(quizzId);
+    }
     
 }

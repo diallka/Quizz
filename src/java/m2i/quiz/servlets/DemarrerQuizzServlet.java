@@ -27,24 +27,24 @@ public class DemarrerQuizzServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-       
-                                                                //rechercher par id
-        List<Quizz> mesQuizzs = new QuizzService().lister();
-        req.setAttribute("quizzs", mesQuizzs);
 
-          req.getRequestDispatcher("demarrer_quizz.jsp").forward(req, resp);
-    }    
+        //detailler quizz par id
+        long quizzId = (long) req.getSession().getAttribute("idQuizActuel");
+        Quizz quizz = new QuizzService().detailler(quizzId);
+        req.setAttribute("quizzs", quizz);
+
+        req.getRequestDispatcher("demarrer_quizz.jsp").forward(req, resp);
+    }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-         //Récuperation Question Quizz actuel
+        //Récuperation des questions du quizz actuel
         long quizzId = (long) req.getSession().getAttribute("idQuizActuel");
         List<Question> questions = new QuestionsService().listerQuestionsParIdQuizz(quizzId);
-        
+
         req.setAttribute("questions", questions);
-        
+
     }
-    
-    
+
 }

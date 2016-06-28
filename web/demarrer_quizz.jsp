@@ -12,9 +12,21 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>validation question</h1>
         
-        <form method="post">
+        <h1>Titre quizz: </h1> 
+        <c:forEach items="${quizzs}" var="qz">
+            ${qz.nom}
+        </c:forEach>
+        <%--${quizzs.nom}--%>
+           
+        
+        <h3>Liste questions</h3>
+                  
+            <c:forEach items="${questions}" var="q">
+                
+                ${q.titre}<br/>
+           </c:forEach>
+            <%--<form method="post">
             
             <c:forEach items="${questions}" var="q">
                 ${q.ordre} <br/>
@@ -25,6 +37,6 @@
             </c:forEach>
             <br/>
             <input type ="submit" value="valider"/>
-        </form>
+</form>--%>
     </body>
 </html>

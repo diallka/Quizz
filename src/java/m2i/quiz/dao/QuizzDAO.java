@@ -9,6 +9,7 @@ import m2i.quiz.entities.Quizz;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 
 /**
  *
@@ -35,6 +36,14 @@ public class QuizzDAO {
     public List<Quizz> listerQuizz() {
         EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();
         return em.createQuery("SELECT qz FROM Quizz qz ORDER BY qz.nom").getResultList();
+    }
+
+    public Quizz detailler(long quizzId) {
+        EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();
+        
+        //return  em.createQuery("SELECT qz FROM Quizz qz WHERE qz.id=:id").setParameter("id", quizzId).getSingleResult();;
+        return em.find(Quizz.class, quizzId);
+       
     }
     
 }
