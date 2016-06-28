@@ -41,7 +41,7 @@
                     <c:otherwise>
             <h3>Liste des quizz </h3> 
                 <c:forEach items="${quizzs}" var="qz">
-                <ul> <a href="lister_questions">${qz.nom}</a></ul>
+                <ul> <a href="mettre_session_quiz_act_demarre?id=${qz.id}">${qz.nom}</a></ul>
                     
                     </c:forEach>
             

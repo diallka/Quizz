@@ -32,10 +32,10 @@ public class QuestionsDAO {
       
     }
 
-//    public List<Questions> listerQuestionParid(long id) {
-//        EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();
-//        return em.createQuery("SELECT q FROM Questions q ORDER BY q.id").getResultList();
-//    }
+    public List<Questions> listerQuestionParid(long id) {
+        EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();
+        return em.createQuery("SELECT q FROM Questions q ORDER BY q.id").getResultList();
+    }
 
     public Questions rechercherQuestionParId(long questionId) {
         EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();

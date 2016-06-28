@@ -14,7 +14,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import m2i.quiz.entities.Questions;
+import m2i.quiz.entities.Quizz;
 import m2i.quiz.services.QuestionsService;
+import m2i.quiz.services.QuizzService;
 
 /**
  *
@@ -26,18 +28,36 @@ public class DemarrerQuizzServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
        
+                                                                //rechercher par id
+        List<Quizz> mesQuizzs = new QuizzService().lister();
+        req.setAttribute("quizzs", mesQuizzs);
+        //req.getSession().setAttribute("idQuizActuel", Long.parseLong( req.getParameter("id") ));
+        //*************************************************************
+                                                            //rechercher par id
+                                                            
+//        List<Questions> mesQuestions = new QuestionsService().lister();
+//        req.setAttribute("questions", mesQuestions);
         
-//        long questionId = (long) req.getSession().getAttribute("idQuestionActuel");
-//        Questions Questions = new QuestionsService().rechercherQuestionParId(questionId);
-//        req.setAttribute("question", Questions);
-
-          //On place un Quizz en session
-          req.getSession().setAttribute("quizzId", Long.parseLong(req.getParameter("idQuizzActuel")));
+//        long idQuestion = Long.parseLong(req.getParameter("id"));
+//        List<Questions> mesQuestions = new QuestionsService().listerQuestionParId(idQuestion);
+//        req.setAttribute("questions", mesQuestions);
+        
           
-          //On met le score à zero dans la session
-          req.getSession().setAttribute("score", 0);
           
-          //Rédirection  vers jsp question suivante
-          resp.sendRedirect("question_suivante");
+          req.getRequestDispatcher("demarrer_quizz.jsp").forward(req, resp);
     }    
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+         //Récuperation Quizz
+        long quizzId = (long) req.getSession().getAttribute("idQuizActuel");
+        Quizz qz = new QuizzService().rechercherParId(quizzId);
+        
+        //Rechercher question selon le quizz dans leqquel on se trouve
+        long questionId = (long) req.getSession().getAttribute("idQuizActuel");
+        Questions mesQuestions = new QuestionsService().rechercherQuestionParId(questionId);
+    }
+    
+    
 }

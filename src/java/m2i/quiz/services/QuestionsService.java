@@ -27,10 +27,10 @@ public class QuestionsService {
        return new QuestionsDAO().lister();
     }
 
-//    public List<Questions> listerQuestionParId(long id) {
-//        
-//       return new QuestionsDAO().listerQuestionParid(id);
-//    }
+    public List<Questions> listerQuestionParId(long id) {
+        
+       return new QuestionsDAO().listerQuestionParid(id);
+    }
 
     public Questions rechercherQuestionParId(long questionId) {
         return new QuestionsDAO().rechercherQuestionParId(questionId);
