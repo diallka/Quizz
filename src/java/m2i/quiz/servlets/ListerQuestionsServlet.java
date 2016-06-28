@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import m2i.quiz.entities.Question;
 import m2i.quiz.entities.Quizz;
-import m2i.quiz.services.QuestionsService;
+import m2i.quiz.services.QuestionService;
 import m2i.quiz.services.QuizzService;
 
 /**
@@ -39,7 +39,7 @@ public class ListerQuestionsServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         //Lister questions
                                                             //rechercher par id
-        List<Question> mesQuestions = new QuestionsService().lister();
+        List<Question> mesQuestions = new QuestionService().lister();
         req.setAttribute("questions", mesQuestions);
         
 //        long idQuestion = Long.parseLong(req.getParameter("id"));

@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import m2i.quiz.entities.Question;
 import m2i.quiz.entities.Quizz;
-import m2i.quiz.services.QuestionsService;
+import m2i.quiz.services.QuestionService;
 import m2i.quiz.services.QuizzService;
 
 /**
@@ -28,21 +28,18 @@ public class DemarrerQuizzServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        //Mettre id actuel en sesion
-        long quizzId = (long) req.getSession().getAttribute("idQuizActuel");
-        Quizz quizz = new QuizzService().detailler(quizzId);
-        req.setAttribute("quizzs", quizz);
         
-        Question q = new Question();
-        long questionId = (long) req.getSession().getAttribute("ordreQuestActuel");
-        q.setOrdre(0);
-        int score = 0;
-        req.setAttribute("ordreQuestActuel", q);
+        //Placer quizz actuel en session
+        req.getSession().setAttribute("quizzId", Long.parseLong(req.getParameter("idQuizActuel")));
         
+        //Initialiser l'ordre à zero
+        req.getSession().setAttribute("ordre", null);
         
+        //Initialiser le score à zero
+        req.getSession().setAttribute("score", 0);
         
+        //On rédirige vers la question suivante
+        resp.sendRedirect("question_suivante");
     }
-
-   
 
 }

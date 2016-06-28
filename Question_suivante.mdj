@@ -128,7 +128,7 @@
 													"height": 13,
 													"autoResize": false,
 													"underline": false,
-													"text": "lister toutes les questions du quizz dans l ordre",
+													"text": "lister toutes les questions du quizz dans l'ordre",
 													"horizontalAlignment": 2,
 													"verticalAlignment": 5
 												},
@@ -1246,7 +1246,7 @@
 													"height": 13,
 													"autoResize": false,
 													"underline": false,
-													"text": "iterer sur la liste des questions jusqua trouver une question dont l ordre est superieur",
+													"text": "iterer sur la liste des questions jusqua trouver une question dont l'ordre est superieur",
 													"horizontalAlignment": 2,
 													"verticalAlignment": 5
 												},
@@ -2773,6 +2773,29 @@
 									"propertyLabel": {
 										"$ref": "AAAAAAFVkgf+06ptUo8="
 									}
+								},
+								{
+									"_type": "UMLNoteView",
+									"_id": "AAAAAAFVluYMpqpyMJ4=",
+									"_parent": {
+										"$ref": "AAAAAAFVkf2eJ6jReBc="
+									},
+									"visible": true,
+									"enabled": true,
+									"lineColor": "#000000",
+									"fillColor": "#ffffff",
+									"fontColor": "#000000",
+									"font": "Arial;13;0",
+									"showShadow": true,
+									"containerChangeable": false,
+									"containerExtending": false,
+									"left": 928,
+									"top": 808,
+									"width": 77.0908203125,
+									"height": 40,
+									"autoResize": false,
+									"text": "Exception",
+									"wordWrap": true
 								}
 							]
 						}
@@ -2797,7 +2820,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFVkf2eJ6jQXyw="
 							},
-							"name": "lister toutes les questions du quizz dans l ordre",
+							"name": "lister toutes les questions du quizz dans l'ordre",
 							"visibility": "public",
 							"kind": "opaque",
 							"isLocallyReentrant": false,
@@ -2848,7 +2871,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFVkf2eJ6jQXyw="
 							},
-							"name": "iterer sur la liste des questions jusqua trouver une question dont l ordre est superieur",
+							"name": "iterer sur la liste des questions jusqua trouver une question dont l'ordre est superieur",
 							"visibility": "public",
 							"kind": "opaque",
 							"isLocallyReentrant": false,

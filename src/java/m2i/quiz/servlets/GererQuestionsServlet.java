@@ -7,7 +7,7 @@ package m2i.quiz.servlets;
 
 import m2i.quiz.entities.Question;
 import m2i.quiz.entities.Quizz;
-import m2i.quiz.services.QuestionsService;
+import m2i.quiz.services.QuestionService;
 import m2i.quiz.services.QuizzService;
 import java.io.IOException;
 import java.util.List;
@@ -44,8 +44,8 @@ public class GererQuestionsServlet extends HttpServlet {
 
         qz.getQuestions().add(q);
         q.setQuizz(qz);
-        QuestionsService questionsService = new QuestionsService();
-        new QuestionsService().creer(q);
+        QuestionService questionsService = new QuestionService();
+        new QuestionService().creer(q);
 
         resp.sendRedirect("gerer_questions ");
     }
@@ -58,7 +58,7 @@ public class GererQuestionsServlet extends HttpServlet {
         //req.getSession().setAttribute("idQuizActuel", Long.parseLong( req.getParameter("id") ));
         //*************************************************************
                                                             //rechercher par id
-        List<Question> mesQuestions = new QuestionsService().lister();
+        List<Question> mesQuestions = new QuestionService().lister();
         req.setAttribute("questions", mesQuestions);
         req.getRequestDispatcher("gerer_questions.jsp").forward(req, resp);
         

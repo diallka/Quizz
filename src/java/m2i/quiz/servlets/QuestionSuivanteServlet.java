@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import m2i.quiz.entities.Question;
-import m2i.quiz.services.QuestionsService;
+import m2i.quiz.services.QuestionService;
 
 /**
  *
@@ -21,15 +21,23 @@ public class QuestionSuivanteServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+        Long quizzId = (Long) req.getSession().getAttribute("idQuizzActuel");
+        List <Question> question = new QuestionService().listerQuestionsParIdQuizz(quizzId);
         
         
-        //Récuperation question actuel
-       
-        //List<Question> questions = new QuestionsService().listerQuestionsParIdQuizz(quizzId);
-
-        //req.setAttribute("questions", questions);
-
-        req.getRequestDispatcher("demarrer_quizz.jsp").forward(req, resp);
+//        Long questionAct = (Long) req.getSession().getAttribute("ordreQuestAct");
+//        Question question = null;
+//        
+//        if(questionAct == null){
+//            question = new QuestionService().getQuestionSuivante(questionAct);
+//        } else {
+//            
+//        }
+//   
+//        if(question == null)
+            
+            
+        req.getRequestDispatcher("question_suivante.jsp").forward(req, resp);
     }
 
 }

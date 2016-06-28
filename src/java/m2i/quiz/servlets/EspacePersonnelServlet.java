@@ -7,7 +7,7 @@ package m2i.quiz.servlets;
 
 import m2i.quiz.entities.Question;
 import m2i.quiz.entities.Quizz;
-import m2i.quiz.services.QuestionsService;
+import m2i.quiz.services.QuestionService;
 import m2i.quiz.services.QuizzService;
 import java.io.IOException;
 import java.util.List;

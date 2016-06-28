@@ -14,7 +14,7 @@ import javax.persistence.Persistence;
  *
  * @author admin
  */
-public class QuestionsDAO {
+public class QuestionDAO {
     
         public void creerTableQuestions(Question q){
         EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();
@@ -28,7 +28,7 @@ public class QuestionsDAO {
 
     public  List<Question> lister(){
          EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();
-        return em.createQuery("SELECT q FROM Questions q ORDER BY q.id").getResultList();
+        return em.createQuery("SELECT q FROM Questions q ").getResultList();
       
     }
 
@@ -36,6 +36,12 @@ public class QuestionsDAO {
         EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();
                                                                                     //Rajouter ORDER BY Ordre des questions
         return em.createQuery("SELECT q FROM Questions q WHERE q.quizz.id=:idQuizz").setParameter("idQuizz", quizzId).getResultList();
+    }
+
+    
+    public Question verifQuestion(Long questionAct) {
+        EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();
+       return em.find(Question.class, questionAct);
     }
     
     
