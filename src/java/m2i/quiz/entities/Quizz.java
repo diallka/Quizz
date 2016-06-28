@@ -29,7 +29,7 @@ public class Quizz implements Serializable {
     private String nom;
     
     @OneToMany(mappedBy="quizz")
-    private List<Questions> questions = new ArrayList<>();
+    private List<Question> questions = new ArrayList<>();
 
     public Long getId() {
         return id;
@@ -47,11 +47,11 @@ public class Quizz implements Serializable {
         this.nom = nom;
     }
 
-    public List<Questions> getQuestions() {
+    public List<Question> getQuestions() {
         return questions;
     }
 
-    public void setQuestions(List<Questions> questions) {
+    public void setQuestions(List<Question> questions) {
         this.questions = questions;
     }
     

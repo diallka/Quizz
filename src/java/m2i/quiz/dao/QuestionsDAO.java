@@ -6,7 +6,7 @@
 package m2i.quiz.dao;
 
 import java.util.List;
-import m2i.quiz.entities.Questions;
+import m2i.quiz.entities.Question;
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 
@@ -16,7 +16,7 @@ import javax.persistence.Persistence;
  */
 public class QuestionsDAO {
     
-        public void creerTableQuestions(Questions q){
+        public void creerTableQuestions(Question q){
         EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();
         //em.createQuery("SELECT q FROM q");
         
@@ -26,20 +26,17 @@ public class QuestionsDAO {
 
     }
 
-    public  List<Questions> lister(){
+    public  List<Question> lister(){
          EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();
         return em.createQuery("SELECT q FROM Questions q ORDER BY q.id").getResultList();
       
     }
 
-    public List<Questions> listerQuestionParid(long id) {
-        EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();
-        return em.createQuery("SELECT q FROM Questions q ORDER BY q.id").getResultList();
-    }
-
-    public Questions rechercherQuestionParId(long questionId) {
+    public List<Question> listerQuestionsParIdQuizz(long quizzId) {
         EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();
         
-        return em.find(Questions.class, questionId);
+        return em.createQuery("SELECT q FROM Questions q WHERE q.quizz.id=:idQuizz").setParameter("idQuizz", quizzId).getResultList();
     }
+    
+    
 }

@@ -8,7 +8,7 @@ package m2i.quiz.services;
 
 import java.util.List;
 import m2i.quiz.dao.QuestionsDAO;
-import m2i.quiz.entities.Questions;
+import m2i.quiz.entities.Question;
 
 /**
  *
@@ -17,28 +17,21 @@ import m2i.quiz.entities.Questions;
 public class QuestionsService {
 
 
-    public void creer(Questions q) {
+    public void creer(Question q) {
         QuestionsDAO dao = new QuestionsDAO();
         dao.creerTableQuestions(q);
     }
 
-    public List<Questions> lister() {
+    public List<Question> lister() {
         
        return new QuestionsDAO().lister();
     }
 
-    public List<Questions> listerQuestionParId(long id) {
-        
-       return new QuestionsDAO().listerQuestionParid(id);
-    }
 
-    public Questions rechercherQuestionParId(long questionId) {
-        return new QuestionsDAO().rechercherQuestionParId(questionId);
+    public List<Question> listerQuestionsParIdQuizz(long quizzId) {
+        return new QuestionsDAO().listerQuestionsParIdQuizz(quizzId);
     }
-
-//    public List<Questions> listerQuestionParId(long id) {
-//
-//        return new QuestionsDAO().listerQuestionParid(id);
-//    }
+     
+    
     
 }

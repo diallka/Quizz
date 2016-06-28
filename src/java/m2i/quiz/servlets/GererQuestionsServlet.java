@@ -5,7 +5,7 @@
  */
 package m2i.quiz.servlets;
 
-import m2i.quiz.entities.Questions;
+import m2i.quiz.entities.Question;
 import m2i.quiz.entities.Quizz;
 import m2i.quiz.services.QuestionsService;
 import m2i.quiz.services.QuizzService;
@@ -32,7 +32,7 @@ public class GererQuestionsServlet extends HttpServlet {
         long quizzId = (long) req.getSession().getAttribute("idQuizActuel");
         Quizz qz = new QuizzService().rechercherParId(quizzId);
 
-        Questions q = new Questions();
+        Question q = new Question();
         q.setTitre(req.getParameter("titre"));
         int numRepCorrecte = Integer.parseInt(req.getParameter("nrc"));
         q.setNumRepCorrecte(numRepCorrecte);
@@ -58,7 +58,7 @@ public class GererQuestionsServlet extends HttpServlet {
         //req.getSession().setAttribute("idQuizActuel", Long.parseLong( req.getParameter("id") ));
         //*************************************************************
                                                             //rechercher par id
-        List<Questions> mesQuestions = new QuestionsService().lister();
+        List<Question> mesQuestions = new QuestionsService().lister();
         req.setAttribute("questions", mesQuestions);
         req.getRequestDispatcher("gerer_questions.jsp").forward(req, resp);
         

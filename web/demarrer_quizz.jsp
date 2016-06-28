@@ -15,14 +15,7 @@
         <h1>validation question</h1>
         
         <form method="post">
-            <%-- 
-            <c:forEach items="${questions}" var="q">
-              <br/>${q.ordre} 
-             </c:forEach>
-                <input type="radio" name="rep" value="${q.rep1}"/>&nbsp ${q.rep1}<br/>
-                <input type="radio" name="rep" value="${q.rep2}"/>&nbsp ${q.rep2}<br/>
-                <input type="radio" name="rep" value="${q.rep3}"/>&nbsp ${q.rep3}<br/>
-            --%>
+            
             <c:forEach items="${questions}" var="q">
                 ${q.ordre} <br/>
                 ${q.titre}<br/>
