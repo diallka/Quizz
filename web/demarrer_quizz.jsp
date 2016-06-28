@@ -14,10 +14,7 @@
     <body>
         
         <h1>Titre quizz: </h1> 
-        <c:forEach items="${quizzs}" var="qz">
-            ${qz.nom}
-        </c:forEach>
-        <%--${quizzs.nom}--%>
+        ${quizzs.nom}
            
         
         <h3>Liste questions</h3>
@@ -26,17 +23,6 @@
                 
                 ${q.titre}<br/>
            </c:forEach>
-            <%--<form method="post">
-            
-            <c:forEach items="${questions}" var="q">
-                ${q.ordre} <br/>
-                ${q.titre}<br/>
-                <input type="radio" name="rep" value="${q.rep1}"/>&nbsp ${q.rep1}<br/>
-                <input type="radio" name="rep" value="${q.rep2}"/>&nbsp ${q.rep2}<br/>
-                <input type="radio" name="rep" value="${q.rep3}"/>&nbsp ${q.rep3}<br/><br/>
-            </c:forEach>
-            <br/>
-            <input type ="submit" value="valider"/>
-</form>--%>
+           
     </body>
 </html>
