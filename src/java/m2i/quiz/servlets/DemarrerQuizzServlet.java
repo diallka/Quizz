@@ -29,8 +29,7 @@ public class DemarrerQuizzServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         
-        //Placer quizz actuel en session
-        req.getSession().setAttribute("quizzId", Long.parseLong(req.getParameter("idQuizActuel")));
+        
         
         //Initialiser l'ordre à zero
         req.getSession().setAttribute("ordre", null);

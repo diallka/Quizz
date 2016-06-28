@@ -23,7 +23,7 @@ public class MettreEnSessionQuizzActuelDemarre extends HttpServlet {
      @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         
-        req.getSession().setAttribute("idQuizActuel", Long.parseLong( req.getParameter("id") ));
+        req.getSession().setAttribute("idQuizzActuel", Long.parseLong( req.getParameter("id") ));
         
         resp.sendRedirect("demarrer_quizz");
     }

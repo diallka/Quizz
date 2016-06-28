@@ -28,14 +28,14 @@ public class QuestionDAO {
 
     public  List<Question> lister(){
          EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();
-        return em.createQuery("SELECT q FROM Questions q ").getResultList();
+        return em.createQuery("SELECT q FROM Question q ").getResultList();
       
     }
 
     public List<Question> listerQuestionsParIdQuizz(long quizzId) {
         EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();
                                                                                     //Rajouter ORDER BY Ordre des questions
-        return em.createQuery("SELECT q FROM Questions q WHERE q.quizz.id=:idQuizz").setParameter("idQuizz", quizzId).getResultList();
+        return em.createQuery("SELECT q FROM Question q WHERE q.quizz.id=:idQuizz").setParameter("idQuizz", quizzId).getResultList();
     }
 
     
