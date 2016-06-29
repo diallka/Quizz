@@ -36,7 +36,7 @@ public class QuizzService {
         return new QuizzDAO().detailler(quizzId);
     }
     
-    public Question rechercherQuestionSuivante (long idQuizzActuel, int ordreQuestionPrecedente) throws Exception{
+    public Question rechercherQuestionSuivante (long idQuizzActuel, int ordreQuestionPrecedente) {
         
         //Récuperer nombre de questions du quizz actuel
         long nbreQuestQuizz = new QuizzDAO().compteQuestionsParQuizzId(idQuizzActuel);

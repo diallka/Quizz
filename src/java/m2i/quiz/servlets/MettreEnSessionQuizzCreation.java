@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author admin
  */
 @WebServlet(name = "MettreEnSessionQuizActuelServlet", urlPatterns = {"/mettre_session_quiz_act"})
-public class MettreEnSessionQuizActuelServlet extends HttpServlet {
+public class MettreEnSessionQuizzCreation extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

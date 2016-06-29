@@ -30,23 +30,24 @@ public class QuestionSuivanteServlet extends HttpServlet {
         
         //On récupère idQuizz et Ordre dernière question repondue en session
         long quizzId = (long) req.getSession().getAttribute("idQuizzActuel");
-        int ordreDerniereQuestRepondue = (int) req.getSession().getAttribute("ordreQuest");
+        int ordreDerniereQuestRepondue = (int) req.getSession().getAttribute("ordre");
         
         //On recupere question suivante via QuizzService
         Question questionSuivante = new QuizzService().rechercherQuestionSuivante(quizzId, ordreDerniereQuestRepondue);
         
         //On met à jour l'ordre de la dernière question
-        req.getSession().setAttribute("ordreQuest", questionSuivante.getOrdre());
+        req.getSession().setAttribute("ordre", questionSuivante.getOrdre());
         
         //Si le quizz est terminé on rédirige vers quizz_terminé
         if(questionSuivante == null)
-            resp.sendRedirect("quizz_termine");
+            resp.sendRedirect("quizz_termine.jsp");
         
         //Si le quizz n'est pas terminé
         
         
         //On afiche la question suivante 
         req.setAttribute("question", questionSuivante);
+        req.getRequestDispatcher("question_suivante.jsp").forward(req, resp);
         
         
         //On recherche le nombre de questions existant dans le quizz actuel
@@ -75,7 +76,15 @@ public class QuestionSuivanteServlet extends HttpServlet {
 //        if(question == null)
             
             
-        req.getRequestDispatcher("question_suivante.jsp").forward(req, resp);
+        
     }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        
+        
+    }
+    
+    
 
 }

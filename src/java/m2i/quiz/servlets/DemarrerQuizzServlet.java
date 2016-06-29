@@ -29,10 +29,19 @@ public class DemarrerQuizzServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         
+        //On met en session l'id du quizz demarré
+        req.getSession().setAttribute("idQuizzActuel", Long.parseLong( req.getParameter("id") ));
         
+//S'ecrit aussi 
+//        long quizzId = Long.parseLong(req.getParameter("id"));
+//        req.setAttribute("idQuizzActuel", quizzId);
         
         //Initialiser l'ordre à zero
-        req.getSession().setAttribute("ordre", null);
+        req.getSession().setAttribute("ordre", 0);
+        
+        //On met en session le nom du quizz demarré
+        req.getSession().setAttribute("nomQuizzActuel", (String)( req.getParameter("qz.nom") ));
+        //*********************
         
         //Initialiser le score à zero
         req.getSession().setAttribute("score", 0);

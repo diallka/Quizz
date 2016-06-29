@@ -53,7 +53,7 @@ public class QuizzDAO {
         
         EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();
         
-        Query query = em.createNamedQuery("SELECT COUNT (q) FROM Question q WHERE q.quizz.id=:id_quizz");
+        Query query = em.createNamedQuery("SELECT COUNT(q) FROM Question q WHERE q.quizz.id=:id_quizz");
               query.setParameter("id_quizz", idQuizzActuel);
         return (int) query.getSingleResult();
               
