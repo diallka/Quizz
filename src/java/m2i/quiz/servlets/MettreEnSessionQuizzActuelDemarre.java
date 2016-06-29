@@ -6,12 +6,14 @@
 package m2i.quiz.servlets;
 
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import m2i.quiz.entities.Question;
+import m2i.quiz.services.QuestionService;
 
 /**
  *
@@ -22,8 +24,13 @@ public class MettreEnSessionQuizzActuelDemarre extends HttpServlet {
 
      @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        
+        //On met en session l'id du quizz demarré
         req.getSession().setAttribute("idQuizzActuel", Long.parseLong( req.getParameter("id") ));
+        
+        //On met en session le nom du quizz demarré
+        req.getSession().setAttribute("nomQuizzActuel", (String)( req.getParameter("qz.nom") ));
+        
+       
         
         resp.sendRedirect("demarrer_quizz");
     }

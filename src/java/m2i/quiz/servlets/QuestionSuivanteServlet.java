@@ -21,8 +21,14 @@ public class QuestionSuivanteServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+        
+        //Lister questions rattachés au quizz
         Long quizzId = (Long) req.getSession().getAttribute("idQuizzActuel");
         List <Question> question = new QuestionService().listerQuestionsParIdQuizz(quizzId);
+        req.setAttribute("questions", question);
+        
+//        List <Question> questions = new QuestionService().listerToutesLesQuestions();
+//        req.setAttribute("questions", questions);
         
         
 //        Long questionAct = (Long) req.getSession().getAttribute("ordreQuestAct");

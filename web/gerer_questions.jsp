@@ -20,17 +20,17 @@
             ${qz_id.nom}
          </c:forEach> --%>
         <h3>Listes des questions</h3>
-        <form method="post">
+        
             <c:forEach items="${questions}" var="q">
                 ${q.ordre} <br/>
                 ${q.titre}<br/>
-                <input type="radio" name="rep" value="${q.rep1}"/>&nbsp ${q.rep1}<br/>
-                <input type="radio" name="rep" value="${q.rep2}"/>&nbsp ${q.rep2}<br/>
-                <input type="radio" name="rep" value="${q.rep3}"/>&nbsp ${q.rep3}<br/><br/>
+                ${q.rep1}<br/>
+                ${q.rep2}<br/>
+               ${q.rep3}<br/><br/>
             </c:forEach>
             <br/>
-            <input type ="submit" value="valider"/>
-        </form>
+            
+        
 
 
         <c:if test="${cookie.login.getValue() == 'admin' && cookie.pswd.getValue() == 'admin' }">

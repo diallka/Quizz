@@ -26,7 +26,7 @@ public class QuestionDAO {
 
     }
 
-    public  List<Question> lister(){
+    public  List<Question> listerToutesLesQuestions(){
          EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();
         return em.createQuery("SELECT q FROM Question q ").getResultList();
       
@@ -35,7 +35,7 @@ public class QuestionDAO {
     public List<Question> listerQuestionsParIdQuizz(long quizzId) {
         EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();
                                                                                     //Rajouter ORDER BY Ordre des questions
-        return em.createQuery("SELECT q FROM Question q WHERE q.quizz.id=:idQuizz").setParameter("idQuizz", quizzId).getResultList();
+        return em.createQuery("SELECT q FROM Question q WHERE q.quizz.id=:id_quizz").setParameter("id_quizz", quizzId).getResultList();
     }
 
     

@@ -22,11 +22,7 @@ public class QuestionService {
         dao.creerTableQuestions(q);
     }
 
-    public List<Question> lister() {
-        
-       return new QuestionDAO().lister();
-    }
-
+   
 
     public List<Question> listerQuestionsParIdQuizz(long quizzId) {
         return new QuestionDAO().listerQuestionsParIdQuizz(quizzId);
@@ -35,6 +31,10 @@ public class QuestionService {
     public Question getQuestionSuivante(Long questionAct) {
 
             return new QuestionDAO().verifQuestion(questionAct);
+    }
+
+    public List<Question> listerToutesLesQuestions() {
+        return new QuestionDAO().listerToutesLesQuestions();
     }
      
     

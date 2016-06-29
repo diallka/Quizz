@@ -28,7 +28,7 @@ public class EspacePersonnelServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Quizz qz = new Quizz();
         qz.setNom(req.getParameter("nom"));
-        //qz.setQuestions((List<Questions>) q);
+        
         QuizzService quizzService = new QuizzService();
         new QuizzService().creer(qz);
 
@@ -39,9 +39,8 @@ public class EspacePersonnelServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<Quizz> mesQuizzs = new QuizzService().lister();
-
         req.setAttribute("quizzs", mesQuizzs);
-
+        
         req.getRequestDispatcher("espace_personnel.jsp").forward(req, resp);
     }
 
