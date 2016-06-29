@@ -28,14 +28,32 @@ public class QuestionService {
         return new QuestionDAO().listerQuestionsParIdQuizz(quizzId);
     }
 
-    public Question getQuestionSuivante(Long questionAct) {
-
-            return new QuestionDAO().verifQuestion(questionAct);
-    }
+//    public Question getQuestionSuivante(Long questionAct) {
+//
+//            return new QuestionDAO().verifQuestion(questionAct);
+//    }
 
     public List<Question> listerToutesLesQuestions() {
         return new QuestionDAO().listerToutesLesQuestions();
     }
+
+   
+
+//    public Question trouverNbrQuestParId(int quizzId_2) {
+//        return new QuestionDAO().trouverNbrQuestParId(quizzId_2);
+//    }
+
+    public Question trouverNbrQuestParId(Long questionAct) {
+        return new QuestionDAO().trouverNbrQuestParId(questionAct);
+    }
+
+//    public int rechercherNbrQuestParIdQuizz(Long nbrQuestion) {
+//        return new QuestionDAO().rechercherNbrQuestParIdQuizz(nbrQuestion);
+//    }
+
+    
+
+   
      
     
     

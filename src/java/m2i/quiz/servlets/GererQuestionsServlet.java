@@ -62,8 +62,9 @@ public class GererQuestionsServlet extends HttpServlet {
         List <Question> question = new QuestionService().listerQuestionsParIdQuizz(quizzId);
         req.setAttribute("questions", question);
                                                             //Lister toutes questions
-        List<Question> mesQuestions = new QuestionService().listerToutesLesQuestions();
-        req.setAttribute("questions", mesQuestions);
+//        List<Question> mesQuestions = new QuestionService().listerToutesLesQuestions();
+//        req.setAttribute("questions", mesQuestions);
+        
         req.getRequestDispatcher("gerer_questions.jsp").forward(req, resp);
     }
 

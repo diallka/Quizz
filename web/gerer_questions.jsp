@@ -22,11 +22,9 @@
         <h3>Listes des questions</h3>
         
             <c:forEach items="${questions}" var="q">
-                ${q.ordre} <br/>
-                ${q.titre}<br/>
-                ${q.rep1}<br/>
-                ${q.rep2}<br/>
-               ${q.rep3}<br/><br/>
+                
+                - ${q.titre} <a href="">Modifier</a>&nbsp&nbsp<a href="">Supprimer</a><br/> 
+                
             </c:forEach>
             <br/>
             
@@ -37,14 +35,15 @@
 
             <h3>Ajouter une question</h3>
             <form method="post">
-                Question: <input type="text" name="q"/><br/>
+                
                 Titre: <input type="text" name="titre"/><br/>
-                Num rep correcte: <select name="nrc">
+                Ordre: <select name="ordre">
                     <option>1</option>
                     <option>2</option>
                     <option>3</option>
-                </select>  <br/>
-                Ordre: <select name="ordre">
+                </select>
+                <br/>
+                Num rep correcte: <select name="nrc">
                     <option>1</option>
                     <option>2</option>
                     <option>3</option>

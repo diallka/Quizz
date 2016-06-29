@@ -27,6 +27,9 @@ public class MettreEnSessionQuizzActuelDemarre extends HttpServlet {
         //On met en session l'id du quizz demarré
         req.getSession().setAttribute("idQuizzActuel", Long.parseLong( req.getParameter("id") ));
         
+        //On met en session ordre question actuelle
+        //req.getSession().setAttribute("ordreQuest", (int)( req.getParameter("ordre")));
+        
         //On met en session le nom du quizz demarré
         req.getSession().setAttribute("nomQuizzActuel", (String)( req.getParameter("qz.nom") ));
         

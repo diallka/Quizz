@@ -39,10 +39,22 @@ public class QuestionDAO {
     }
 
     
-    public Question verifQuestion(Long questionAct) {
+//    public Question verifQuestion(Long questionAct) {
+//        EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();
+//       return em.find(Question.class, questionAct);
+//    }
+
+    public Question trouverNbrQuestParId(Long questionAct) {
         EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();
-       return em.find(Question.class, questionAct);
+       return (Question) em.createQuery("SELECT q FROM Question q WHERE q.quizz.id=:id_quizz").setParameter("id_quizz", questionAct).getSingleResult();
     }
+
+//    public int rechercherNbrQuestParIdQuizz(long nbrQuestion) {
+//        EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();
+//       return (int) em.createQuery("SELECT COUNT (q) FROM Question q WHERE q.quizz.id=:id_quizz").setParameter("id_quizz", nbrQuestion).getSingleResult();
+//    }
+
+    
     
     
 }

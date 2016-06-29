@@ -19,8 +19,8 @@
           <br/><br/>
           Score: ${score}/3
           <br/><br/>
-          Question:
-          
+          Question &nbsp  ${question.ordre}/${nbreQuestions}
+          <br/><br/>
         <form method="post">
           <c:forEach items="${questions}" var="q">
                 ${q.ordre} <br/>

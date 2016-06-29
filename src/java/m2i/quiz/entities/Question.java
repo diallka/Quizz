@@ -27,7 +27,7 @@ public class Question implements Serializable {
     
     private String titre;
     
-    private int ordre;
+    private Integer ordre; // Integer  au lieu de int de type Objet ceci permet si l'on veut mettre Null sur l'objet
     
     private String rep1;
     
@@ -35,7 +35,7 @@ public class Question implements Serializable {
     
     private String rep3;
     
-    private int numRepCorrecte;
+    private Integer numRepCorrecte;
     
     @ManyToOne
     @JoinColumn(name = "QUIZZ_ID")
@@ -67,11 +67,11 @@ public class Question implements Serializable {
         this.titre = titre;
     }
 
-    public int getOrdre() {
+    public Integer getOrdre() {
         return ordre;
     }
 
-    public void setOrdre(int ordre) {
+    public void setOrdre(Integer ordre) {
         this.ordre = ordre;
     }
 
@@ -99,11 +99,11 @@ public class Question implements Serializable {
         this.rep3 = rep3;
     }
 
-    public int getNumRepCorrecte() {
+    public Integer getNumRepCorrecte() {
         return numRepCorrecte;
     }
 
-    public void setNumRepCorrecte(int numRepCorrecte) {
+    public void setNumRepCorrecte(Integer numRepCorrecte) {
         this.numRepCorrecte = numRepCorrecte;
     }
 

@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import m2i.quiz.entities.Question;
 import m2i.quiz.services.QuestionService;
+import m2i.quiz.services.QuizzService;
 
 /**
  *
@@ -23,17 +24,48 @@ public class QuestionSuivanteServlet extends HttpServlet {
 
         
         //Lister questions rattachés au quizz
-        Long quizzId = (Long) req.getSession().getAttribute("idQuizzActuel");
-        List <Question> question = new QuestionService().listerQuestionsParIdQuizz(quizzId);
-        req.setAttribute("questions", question);
+        //Long quizzId = (Long) req.getSession().getAttribute("idQuizzActuel");
+        //List <Question> question = new QuestionService().listerQuestionsParIdQuizz(quizzId);
+        //req.setAttribute("questions", question);
         
-//        List <Question> questions = new QuestionService().listerToutesLesQuestions();
-//        req.setAttribute("questions", questions);
+        //On récupère idQuizz et Ordre dernière question repondue en session
+        long quizzId = (long) req.getSession().getAttribute("idQuizzActuel");
+        int ordreDerniereQuestRepondue = (int) req.getSession().getAttribute("ordreQuest");
+        
+        //On recupere question suivante via QuizzService
+        Question questionSuivante = new QuizzService().rechercherQuestionSuivante(quizzId, ordreDerniereQuestRepondue);
+        
+        //On met à jour l'ordre de la dernière question
+        req.getSession().setAttribute("ordreQuest", questionSuivante.getOrdre());
+        
+        //Si le quizz est terminé on rédirige vers quizz_terminé
+        if(questionSuivante == null)
+            resp.sendRedirect("quizz_termine");
+        
+        //Si le quizz n'est pas terminé
         
         
-//        Long questionAct = (Long) req.getSession().getAttribute("ordreQuestAct");
-//        Question question = null;
-//        
+        //On afiche la question suivante 
+        req.setAttribute("question", questionSuivante);
+        
+        
+        //On recherche le nombre de questions existant dans le quizz actuel
+         //int quizzId_2 = (int) req.getSession().getAttribute("idQuizzActuel");
+        //Question question = new QuestionService().trouverNbrQuestParId(quizzId_2);
+        
+//       Long questionAct = (Long) req.getSession().getAttribute("ordreQuestAct");
+//       Question quest = new QuestionService().trouverNbrQuestParId(questionAct);
+//       Question question = null;
+ 
+//        Long questionAct = (Long) req.getSession().getAttribute("idQuizzActuel");
+//        Question quest = new QuestionService().trouverNbrQuestParId(questionAct);
+//        req.setAttribute("quest", quest);
+
+//          Long nbrQuestion = (Long) req.getSession().getAttribute("idQuizzActuel");
+//          int nbrQuest = new QuestionService().rechercherNbrQuestParIdQuizz(nbrQuestion);
+//          req.setAttribute("nbrQuest", nbrQuest);
+          
+          
 //        if(questionAct == null){
 //            question = new QuestionService().getQuestionSuivante(questionAct);
 //        } else {
